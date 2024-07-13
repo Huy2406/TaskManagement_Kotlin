@@ -1,4 +1,4 @@
-package com.example.taskmanagement
+package com.example.taskmanagement.Activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

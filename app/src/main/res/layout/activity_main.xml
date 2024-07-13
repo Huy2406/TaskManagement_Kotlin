@@ -80,7 +80,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/pic"
                     android:layout_width="wrap_content"
                     android:layout_height="110dp"
                     android:layout_marginEnd="16dp"
