@@ -1,5 +1,8 @@
 package com.example.taskmanagement.Adapter
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +10,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.taskmanagement.Domain.OngoingDomain
@@ -21,9 +25,21 @@ class OngoingAdapter(private val item: List<OngoingDomain>):
         val progressBarPercent:TextView=itemView.findViewById(R.id.percentTxt)
         val progressTxt:TextView=itemView.findViewById(R.id.progressTxt)
         val progressBar:ProgressBar=itemView.findViewById(R.id.progressBar)
-        val pic:ImageView=itemView.findViewById(R.id.titleTxt)
+        val pic:ImageView=itemView.findViewById(R.id.pic)
         val layout:ConstraintLayout=itemView.findViewById(R.id.layout)
 
+        fun setTextColors(colorRes:Int){
+            title.setTextColor(itemView.context.getColor(colorRes))
+            data.setTextColor(itemView.context.getColor(colorRes))
+            progressTxt.setTextColor(itemView.context.getColor(colorRes))
+            progressBarPercent.setTextColor(itemView.context.getColor(colorRes))
+            pic.setColorFilter(
+                ContextCompat.getColor(itemView.context,colorRes),
+                PorterDuff.Mode.SRC_IN
+            )
+            progressBar.progressTintList=
+                ColorStateList.valueOf(ContextCompat.getColor(itemView.context,colorRes))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
@@ -45,6 +61,19 @@ class OngoingAdapter(private val item: List<OngoingDomain>):
         )
 
         Glide.with(holder.itemView.context).load(drawableResourceId).into(holder.pic)
+
+        holder.progressBar.progress=item.progressPercent
+
+        with(holder){
+            if(position==0){
+                layout.setBackgroundResource(R.drawable.dark_bg)
+                setTextColors(R.color.white)
+            }
+            else{
+                layout.setBackgroundResource(R.drawable.light_purple_background)
+                setTextColors(R.color.dark_purple)
+            }
+        }
 
     }
 }
