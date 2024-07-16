@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title for the dialog -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Task"
+        android:textSize="23sp"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/editTextTaskName"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Task Name"
+        android:inputType="text"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/editTextTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:hint="Task Description"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"/>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="end"-->
+<!--        android:layout_marginTop="16dp">-->
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/buttonCancel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Cancel"-->
+
+<!--            android:textColor="@color/white"-->
+<!--            android:background="@drawable/button_background"-->
+<!--            android:layout_marginEnd="8dp"/>-->
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/buttonSave"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:background="@drawable/button_background"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Save"/>-->
+<!--    </LinearLayout>-->
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "189931034409",
+    "firebase_url": "https://task-69553-default-rtdb.firebaseio.com",
+    "project_id": "task-69553",
+    "storage_bucket": "task-69553.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189931034409:android:dc1a51980c31afc9520938",
+        "android_client_info": {
+          "package_name": "com.example.taskmanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSI6O-sIGr_mF1P428l9NI0aSI3c6WmHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

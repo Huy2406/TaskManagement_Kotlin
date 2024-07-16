@@ -1,51 +1,37 @@
 package com.example.taskmanagement.Activity
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.taskmanagement.Adapter.ArchiveAdapter
-import com.example.taskmanagement.Adapter.MyTeamAdapter
-import com.example.taskmanagement.R
-import com.example.taskmanagement.ViewModel.ProfileViewModel
-import com.example.taskmanagement.databinding.ActivityMainBinding
+import com.example.taskmanagement.Adapter.TaskDoneAdapter
+import com.example.taskmanagement.ViewModel.OnGoingViewModel
 import com.example.taskmanagement.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
-    lateinit var binding: ActivityProfileBinding
-    val profileViewModel:ProfileViewModel by viewModels()
+    private lateinit var binding: ActivityProfileBinding
+    private val ongoingViewModel: OnGoingViewModel by viewModels()
+    private lateinit var taskDoneAdapter: TaskDoneAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
-        binding.apply {
-            val myteamAdapter by lazy {MyTeamAdapter(profileViewModel.loadDataMyteam()) }
-            viewTeam.apply {
-                adapter=myteamAdapter
-                layoutManager=LinearLayoutManager(
-                    this@ProfileActivity,
-                    LinearLayoutManager.VERTICAL,
-                    false
-                )
-            }
-
-            val archiveAdapter by lazy {ArchiveAdapter(profileViewModel.loadDataArchive())}
-            viewArchive.apply {
-                adapter=archiveAdapter
-                layoutManager=LinearLayoutManager(
-                    this@ProfileActivity,
-                    LinearLayoutManager.HORIZONTAL,
-                    false
-                )
-            }
+        // Initialize TaskDoneAdapter with an empty list
+        taskDoneAdapter = TaskDoneAdapter(mutableListOf())
+        // Set up RecyclerView
+        binding.viewTeam.apply {
+            Log.d(TAG, "onCreate: ${23423423}")
+            layoutManager = LinearLayoutManager(this@ProfileActivity)
+            adapter = taskDoneAdapter
+        }
+        ongoingViewModel.getAllDoneTasksAcrossOngoing()
+        // Observe LiveData from ViewModel
+        ongoingViewModel.ongoingTasksDoneLiveData.observe(this) { tasks ->
+            Log.d(TAG, "onCreate: ${tasks.size}")
+            taskDoneAdapter.updateTasks(tasks)
         }
     }
 }

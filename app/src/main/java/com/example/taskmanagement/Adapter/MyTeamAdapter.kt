@@ -18,26 +18,27 @@ import com.example.taskmanagement.Domain.TeamDomain
 import com.example.taskmanagement.R
 
 
-class MyTeamAdapter(private val item: List<TeamDomain>):
+class MyTeamAdapter(private val items: List<TeamDomain>) :
     RecyclerView.Adapter<MyTeamAdapter.Viewholder>() {
-    inner class Viewholder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val title:TextView=itemView.findViewById(R.id.titleTxt)
-        val status:TextView=itemView.findViewById(R.id.statusTxt)
+    inner class Viewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val title: TextView = itemView.findViewById(R.id.titleTxt)
+        val status: TextView = itemView.findViewById(R.id.statusTxt)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
-        val view=
-            LayoutInflater.from(parent.context).inflate(R.layout.viewholder_team, parent,false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.viewholder_team, parent, false)
         return Viewholder(view)
     }
 
-    override fun getItemCount(): Int = item.size
+    override fun getItemCount(): Int = items.size
+
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
-    val item=item[position]
-        holder.title.text=item.title
-        holder.status.text=item.status
+        val item = items[position]
+        holder.title.text = item.title
+        holder.status.text = item.status
 
     }
 }

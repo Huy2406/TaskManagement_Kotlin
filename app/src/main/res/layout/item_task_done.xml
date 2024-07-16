@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tasklayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_margin="5dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:background="@drawable/border_background"> <!-- Set background here -->
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- TextViews for Task Title and Details -->
+        <TextView
+            android:id="@+id/text_name_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ongoing Task Title"
+            android:textColor="@color/purple_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/text_description_name"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="Details about the ongoing task"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Add any other relevant information about the ongoing task here -->
+
+    </LinearLayout>
+
+    <ImageView
+        android:src="@drawable/baseline_check_24"
+        android:layout_width="40dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"/>
+</LinearLayout>
